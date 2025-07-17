@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Chandra</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      color: #333;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    header {
+      background: #007BFF;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      margin: 1rem 0;
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+    }
+
+    .toggle-dark {
+      background: none;
+      border: 2px solid white;
+      padding: 0.3rem 0.8rem;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: white;
+    }
+
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+
+    body.dark header {
+      background: #1f1f1f;
+    }
+
+    body.dark .project-card {
+      background: #2a2a2a;
+      color: #eee;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Chandra</h1>
+    <div>
+      <a href="#about">Tentang</a>
+      <a href="#projects">Proyek</a>
+      <a href="#contact">Kontak</a>
+      <button class="toggle-dark">🌙</button>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>Tentang Saya</h2>
+    <p>Halo! Saya Chandra, seorang developer web pemula yang sedang belajar membuat website interaktif menggunakan HTML, CSS, dan JavaScript.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Proyek Terbaru</h2>
+    <div class="project-card">
+      <h3>Website Absensi</h3>
+      <p>Web absensi berbasis Firebase yang modern, dengan fitur realtime dan dark mode.</p>
+    </div>
+    <div class="project-card">
+      <h3>Blog RZF Academy</h3>
+      <p>Platform blog sederhana untuk pelajar dan pengajar, dilengkapi dengan sistem kategori dan multi-user.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontak Saya</h2>
+    <p>Email: chandrx@email.com</p>
+    <p>GitHub: <a href="https://github.com/chandrx" target="_blank">github.com/chandrx</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Chandra
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    document.querySelector('.toggle-dark').onclick = () => {
+      document.body.classList.toggle('dark');
+    };
+
+    // Scroll animation
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < triggerBottom) {
+          section.classList.add('show');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
