@@ -2,201 +2,107 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Chandra</title>
-  <style>
-    :root {
-      --primary: #007bff;
-      --light-bg: #f0f0f0;
-      --dark-bg: #121212;
-      --light-text: #333;
-      --dark-text: #eee;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--light-bg);
-      color: var(--light-text);
-      transition: background 0.4s, color 0.4s;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    header h1 {
-      font-size: 1.3rem;
-    }
-
-    nav {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-
-    .toggle-dark {
-      background: none;
-      border: 2px solid white;
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      margin-left: 1rem;
-    }
-
-    section {
-      padding: 3rem 1.5rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h2 {
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 1rem;
-      margin: 1rem 0;
-      transition: transform 0.3s;
-    }
-
-    .project-card:hover {
-      transform: scale(1.02);
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: white;
-      font-size: 0.9rem;
-    }
-
-    /* Dark Mode */
-    body.dark {
-      background: var(--dark-bg);
-      color: var(--dark-text);
-    }
-
-    body.dark header {
-      background: #1f1f1f;
-    }
-
-    body.dark .project-card {
-      background: #2a2a2a;
-      color: var(--dark-text);
-    }
-
-    @media (min-width: 600px) {
-      header {
-        flex-direction: row;
-      }
-
-      nav {
-        margin-top: 0;
-      }
-
-      section {
-        padding: 4rem 4rem;
-      }
-
-      h2 {
-        font-size: 1.6rem;
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#06b6d4', // cyan
+            accent: '#3b82f6',  // blue
+            danger: '#ef4444',  // red
+          }
+        }
       }
     }
-  </style>
+  </script>
 </head>
-<body>
-  <header>
-    <h1>Chandra</h1>
-    <nav>
-      <a href="#about">Tentang</a>
-      <a href="#projects">Proyek</a>
-      <a href="#contact">Kontak</a>
-      <button class="toggle-dark">🌙</button>
-    </nav>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-white transition-colors duration-300">
+  <header class="sticky top-0 z-50 bg-primary dark:bg-gray-800 text-white shadow-md">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <h1 class="text-xl font-bold tracking-wide">Chandra</h1>
+      <nav class="flex items-center gap-4">
+        <a href="#about" class="hover:text-red-300 transition">Tentang</a>
+        <a href="#projects" class="hover:text-red-300 transition">Proyek</a>
+        <a href="#contact" class="hover:text-red-300 transition">Kontak</a>
+        <button id="darkToggle" class="ml-2 px-3 py-1 border border-white rounded text-sm hover:bg-white hover:text-primary transition">🌙</button>
+      </nav>
+    </div>
   </header>
 
-  <section id="about">
-    <h2>Tentang Saya</h2>
-    <p>Halo! Saya Chandra, seorang developer web pemula yang sedang belajar membuat website interaktif dan responsif menggunakan HTML, CSS, dan JavaScript.</p>
-  </section>
+  <main class="pt-16 pb-10">
+    <!-- Hero Section -->
+    <section class="text-center px-4 max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-accent mb-4">Halo! Saya Chandra 👋</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300">Seorang Web Developer pemula yang fokus membuat web interaktif, responsif, dan menyenangkan menggunakan <span class="text-primary font-semibold">HTML, CSS, JS, & Tailwind</span>.</p>
+    </section>
 
-  <section id="projects">
-    <h2>Proyek Terbaru</h2>
-    <div class="project-card">
-      <h3>Website Absensi</h3>
-      <p>Web absensi berbasis Firebase yang modern, dengan fitur realtime dan dark mode.</p>
-    </div>
-    <div class="project-card">
-      <h3>Blog RZF Academy</h3>
-      <p>Platform blog sederhana untuk pelajar dan pengajar, dilengkapi dengan sistem kategori dan multi-user.</p>
-    </div>
-  </section>
+    <!-- About -->
+    <section id="about" class="max-w-4xl mx-auto px-4 mb-20">
+      <h3 class="text-2xl font-semibold mb-6 border-b-2 border-primary inline-block">Tentang Saya</h3>
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed">Saya memulai belajar web sejak tahun 2024. Fokus utama saya adalah membangun aplikasi web yang tidak hanya berfungsi, tapi juga punya tampilan yang menarik dan mudah digunakan, terutama di perangkat mobile.</p>
+    </section>
 
-  <section id="contact">
-    <h2>Kontak Saya</h2>
-    <p>Email: chandrx@email.com</p>
-    <p>GitHub: <a href="https://github.com/chandrx" target="_blank">github.com/chandrx</a></p>
-  </section>
+    <!-- Projects -->
+    <section id="projects" class="max-w-5xl mx-auto px-4 mb-20">
+      <h3 class="text-2xl font-semibold mb-6 border-b-2 border-primary inline-block">Proyek Terbaru</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 hover:scale-[1.02] hover:border-l-4 border-primary transition-all">
+          <h4 class="text-xl font-bold text-accent mb-2">Website Absensi</h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300">Aplikasi absensi berbasis Firebase realtime, dark mode, dan pengaturan waktu keterlambatan.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 hover:scale-[1.02] hover:border-l-4 border-red-400 transition-all">
+          <h4 class="text-xl font-bold text-red-500 mb-2">Blog RZF Academy</h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300">Platform blog multi-user, lengkap dengan kategori dan kontrol konten untuk user & admin.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 hover:scale-[1.02] hover:border-l-4 border-accent transition-all">
+          <h4 class="text-xl font-bold text-primary mb-2">Web Horor Interaktif</h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300">Website horor interaktif dengan jumpscare, animasi audio, dan pengalaman menyeramkan!</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 hover:scale-[1.02] hover:border-l-4 border-primary transition-all">
+          <h4 class="text-xl font-bold text-accent mb-2">Toko Galon Depot Air</h4>
+          <p class="text-sm text-gray-700 dark:text-gray-300">Sistem absensi dan pencatatan penjualan depot air galon, support multi-admin toko.</p>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    &copy; 2025 Chandra / CHX
+    <!-- Contact -->
+    <section id="contact" class="max-w-4xl mx-auto px-4 mb-20">
+      <h3 class="text-2xl font-semibold mb-6 border-b-2 border-primary inline-block">Kontak Saya</h3>
+      <ul class="text-gray-700 dark:text-gray-300 space-y-2">
+        <li>Email: <a href="mailto:chandrx@email.com" class="text-primary hover:underline">chandrx@email.com</a></li>
+        <li>GitHub: <a href="https://github.com/chandrx" class="text-primary hover:underline" target="_blank">github.com/chandrx</a></li>
+        <li>Instagram: <a href="https://instagram.com/username" class="text-primary hover:underline" target="_blank">@username</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="text-center py-4 bg-gray-100 dark:bg-gray-800 text-sm text-gray-600 dark:text-gray-400">
+    &copy; 2025 <span class="text-primary font-semibold">Chandra</span> / CHX. Dibuat dengan 💙 + Tailwind.
   </footer>
 
   <script>
-    // Dark mode toggle
-    document.querySelector('.toggle-dark').onclick = () => {
-      document.body.classList.toggle('dark');
-    };
+    // Toggle Dark Mode
+    const toggle = document.getElementById("darkToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
 
-    // Reveal on scroll
-    const sections = document.querySelectorAll('section');
-    function reveal() {
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const pos = sec.getBoundingClientRect().top;
-        if (pos < trigger) {
-          sec.classList.add('show');
+    // Scroll animation: fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
         }
       });
-    }
-    window.addEventListener('scroll', reveal);
-    window.addEventListener('load', reveal);
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section").forEach((section) => {
+      section.classList.add("opacity-0", "translate-y-8", "transition-all", "duration-700");
+      observer.observe(section);
+    });
   </script>
 </body>
 </html>
